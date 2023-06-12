@@ -14,7 +14,18 @@ describe("The rover", ()=>{
             "direction": 'E'
           };
 
-        expect(nextMove(currentPosition,commands)).toEqual(expectedPosition)
+        expect(nextMove([5,5],currentPosition,commands)).toEqual(expectedPosition)
+    })
+    test('returns "not enough space" when the new coordination is bigger than the grid provided', () => {
+        let currentPosition = {
+            "X": 0,
+            "Y":0,
+            "direction": 'N' 
+        } 
+        // lands in 6,6 S which is outside the grid
+        let commands = ["M", "M", "M", "M", "M", "M","R","M", "M", "M", "M", "M", "M","R"]
+        expect(nextMove([5,5],currentPosition,commands)).toEqual("not enough space")
     })
 
 });
+
