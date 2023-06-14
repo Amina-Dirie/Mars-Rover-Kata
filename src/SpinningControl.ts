@@ -5,34 +5,31 @@ export type position = {
 } 
 
 
-export function turnLeft(direction:string) : string{
-    if (direction === "N") {
+export function turnLeft(direction: string): string {
+    switch (direction) {
+      case "N":
         return "W";
-    }
-    else if (direction === "W") {
+      case "W":
         return "S";
-    }
-    else if (direction === "S") {
+      case "S":
         return "E";
-    }
-    else {
+      default:
         return "N";
     }
-}
-export function turnRight(direction:string) : string{
-    if (direction === "N") {
+  }
+  export function turnRight(direction: string): string {
+    switch (direction) {
+      case "N":
         return "E";
-    }
-    else if (direction === "E") {
+      case "E":
         return "S";
-    }
-    else if (direction === "S") {
+      case "S":
         return "W";
-    }
-    else {
+      default:
         return "N";
+        
     }
-}
+  }
 
 
 export function moveForward(currentPosition:position) :position{

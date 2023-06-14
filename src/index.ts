@@ -14,8 +14,7 @@ ask.question('What are the commands? ', (commands: string) => {
     }
     let splited = commands.split('');
 
-    let result = nextMove([5,5],theCurrentPosition,splited);
-    console.log(result);
+    console.log(nextMove([5,5],theCurrentPosition,splited));
   
   ask.close();
 });
@@ -40,21 +39,14 @@ export function nextMove(grid:number[], currentPosition:position, commands:strin
     });
     
     if (!isInvalid) {
-        if (grid[0] < newPosition.X || grid[1] < newPosition.Y ) {
-            return "not enough space"
-        }
-        else{
-             return newPosition;
-        }
+        return grid[0] < newPosition.X || grid[1] < newPosition.Y
+        ? "not enough space"
+        : newPosition;
         
     }
     else{
         return "invalid command"
-
-    }
-
-  
-   
+    }  
 
 }
 

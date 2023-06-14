@@ -25,14 +25,16 @@ export function nextMove(grid: [number, number], rovers: Rover[]): (position | s
     });
 
     if (!isInvalid) {
-      if (grid[0] < newPosition.X || grid[1] < newPosition.Y) {
-        finalPositions.push("not enough space");
-      } else {
-        finalPositions.push(newPosition);
-      }
+      //if statment
+      grid[0] < newPosition.X || grid[1] < newPosition.Y
+      ? finalPositions.push("not enough space")
+      : finalPositions.push(newPosition);
+  
     } else {
       finalPositions.push("invalid command");
     }
+
+    
   });
 
   return finalPositions;
