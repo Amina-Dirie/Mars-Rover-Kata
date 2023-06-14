@@ -67,6 +67,38 @@ describe("The rovers", () => {
 
     expect(nextMove([5, 5], rovers)).toEqual(expectedPositions);
   });
+  
+  test('returns "invalid command" when a rover encounters an invalid command', () => {
+    const rovers = [
+      {
+        position: {
+          X: 0,
+          Y: 0,
+          direction: 'N',
+        },
+        commands: ['K', 'M', 'M', 'M', 'K', 'M', 'R', 'M', 'M'],
+      },
+      {
+        position: {
+          X: 2,
+          Y: 3,
+          direction: 'E',
+        },
+        commands: ['M', 'R', 'M', 'M', 'L', 'M', 'R'],
+      },
+    ];
+
+    const expectedPositions = [
+      'invalid command',
+      {
+        X: 4,
+        Y: 1,
+        direction: 'S',
+      },
+    ];
+
+    expect(nextMove([5, 5], rovers)).toEqual(expectedPositions);
+});
 
 
 });
