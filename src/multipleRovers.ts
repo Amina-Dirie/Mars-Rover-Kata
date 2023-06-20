@@ -8,34 +8,35 @@ type Rover = {
 export function nextMove(grid: [number, number], rovers: Rover[]): (position | string)[] {
   const finalPositions: (position | string)[] = [];
 
-  rovers.forEach((rover) => {
-    let newPosition = rover.position;
+  for (const rover of rovers) {
+    let newPosistion = { ...rover.position };
     let isInvalid = false;
 
-    rover.commands.forEach((command) => {
-      if (command === "L") {
-        newPosition.direction = turnLeft(newPosition.direction);
-      } else if (command === "R") {
-        newPosition.direction = turnRight(newPosition.direction);
-      } else if (command === "M") {
-        newPosition = moveForward(newPosition);
-      } else {
-        isInvalid = true;
+    for (const command of rover.commands) {
+      switch (command) {
+        case "L":
+          newPosistion.direction = turnLeft(newPosistion.direction);
+          break;
+        case "R":
+          newPosistion.direction = turnRight(newPosistion.direction);
+          break;
+        case "M":
+          newPosistion = moveForward(newPosistion);
+          break;
+        default:
+          isInvalid = true;
+          break;
       }
-    });
-
-    if (!isInvalid) {
-      //if statment
-      grid[0] < newPosition.X || grid[1] < newPosition.Y
-      ? finalPositions.push("not enough space")
-      : finalPositions.push(newPosition);
-  
-    } else {
-      finalPositions.push("invalid command");
     }
 
-    
-  });
+    if ( newPosistion.X > grid[0] || newPosistion.Y > grid[1]) {
+      finalPositions.push("not enough space");
+    } else if (isInvalid) {
+      finalPositions.push("invalid command");
+    } else {
+      finalPositions.push(newPosistion);
+    }
+  }
 
   return finalPositions;
 }

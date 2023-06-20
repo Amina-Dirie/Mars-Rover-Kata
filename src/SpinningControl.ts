@@ -5,6 +5,7 @@ export type position = {
 } 
 
 
+
 export function turnLeft(direction: string): string {
     switch (direction) {
       case "N":

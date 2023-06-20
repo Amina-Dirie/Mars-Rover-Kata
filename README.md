@@ -5,7 +5,7 @@
 Mars Rover Project
 This is a simple project that simulates the movement of a Mars rover on a grid/plateau.
 
-The project consists of four files: rover.ts, index.ts multiplerover.ts and multiplerover.test.ts.
+The project consists of four files use src/filename to access: rover.ts,index.ts multiplerover.ts and multiplerover.test.ts.
 This test files provides the tests that ensure the Mars rover's working order.
 The function nextMove has three arguments:
 
@@ -46,7 +46,7 @@ This file contains the functions that control the rovers' movements.
 
 ## having mulitple rovers:
 
-The function nextMove  in the muiltiple.rover.ts takes two arguments:
+The function nextMove  in the src/muiltiple.rover.ts takes two arguments:
 
 1-grid: an array of two numbers representing the maximum values of the grid's X and Y coordinates.
 ```TypeScript
