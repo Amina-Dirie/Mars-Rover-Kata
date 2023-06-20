@@ -80,3 +80,6 @@ grid[5,5]
 -To run the UI execute npm Start to run it in the terminal.
 
 
+## Refactoring/Expanding
+- Adding more user inputs.
+- completing the front-end.
